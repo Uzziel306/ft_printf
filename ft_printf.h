@@ -14,9 +14,13 @@ typedef struct		s_tools
 	int				ret;
 	int				len;
 	int				x;
+	int				y;
 	int				minus;
 	int				dat;
+	int				zero;
+	int				dat_nb;
 	char			*nb;
+	char			*nb2;
   char      *str;
   char      *buff;
   char      c;

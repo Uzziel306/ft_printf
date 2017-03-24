@@ -80,11 +80,12 @@ int ft_printf(const char *format, ...)
 
 int main(void)
 {
-  char a[100] = "putas pisadas este es mi";
+  char a[5] = "mundo";
   // printf("Resultado es %g\n", multiSuma(10, 2.3, 2.1, 2.2));
   // pprintf("Probemos a poner parentesis a una ?s y a un ?d", "cadena", 25);
   // ft_printf("hola %s estoy loco si\n", "mundo");
-  printf("hola %25s mundo\n", a);
-
+  //printf("hola %3s loco\n", a);
+//printf("%04d\n", 5);
+  printf("hola %20.5s loco", "mundo");
   return 0;
 }
