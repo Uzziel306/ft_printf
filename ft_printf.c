@@ -2,10 +2,13 @@
 
 int       ft_chose_format(t_pf *f, va_list pa)
 {
-  if (f->tool.c == 's')
+  if (f->tool.c == 's' || f->tool.c == 'S')
     ft_s(f, va_arg(pa, char*));
-  if (f->tool.c == 'i')
+  else if (f->tool.c == 'c' || f->tool.c == 'C')
+    ft_c(f, va_arg(pa, int));
+  else if (f->tool.c == 'i' || f->tool.c == 'd')
     ft_i(f, va_arg(pa, int));
+
   return (0);
 }
 
@@ -65,6 +68,10 @@ int     ft_getval(char **str, t_pf *f, va_list pa)
       f->tool.dat = 1;
     else if (**str == '-')
       f->tool.minus = 1;
+    else if (**str == '+')
+      f->tool.minus = 1;
+    else if (**str == '#')
+      f->tool.ht = 1;
     else if (**str == '0' && ((*(*str - 1)) == '%'))
       f->tool.zero = 1;
     else if (ft_isdigit(**str) && f->tool.dat != 0)
@@ -102,7 +109,7 @@ int       ft_printf(const char *format, ...)
 
 int main(void)
 {
-   printf("%-5.2s is a string\n", "");
-   ft_printf("%-5.2s is a string\n", "");
+   ft_printf("%-2c \n", 'a');
+   printf("%-2c \n", 'a');
   return 0;
 }

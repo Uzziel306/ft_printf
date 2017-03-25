@@ -19,6 +19,7 @@ typedef struct		s_tools
 	int				dat;
 	int				zero;
 	int				dat_nb;
+	int				ht;
 	char			*nb;
 	char			*nb2;
   char      *str;
@@ -33,5 +34,6 @@ typedef struct		s_pf
 
 int      ft_s_dat(t_pf *f, char *str);
 int      ft_s(t_pf *f, char *str);
-void      ft_i(t_pf *f, int nb);
+int    	 ft_c(t_pf *f, int c);
+void     ft_i(t_pf *f, int nb);
 #endif

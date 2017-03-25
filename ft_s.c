@@ -72,7 +72,11 @@ int       ft_s_x_dat(t_pf *f, char *str)
     tmp[f->tool.y] = '\0';
     ft_s_x_r(f, tmp);
   }
-  // else if (f->tool.y > f->tool.len)
+  else if (f->tool.y < f->tool.len)
+  {
+    tmp[f->tool.y] = '\0';
+    ft_s_x_r(f, tmp);
+  }
   return (0);
 }
 
