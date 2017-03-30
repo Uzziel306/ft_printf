@@ -30,7 +30,7 @@ int      ft_i_x(t_pf *f, char *str)
   if (f->t.z == 1)
   {
     c = '0';
-    f->t.res += ft_putchar('+');
+    f->t.res += ft_putchar('0');
     f->t.len += 1;
   }
   while (f->t.len < f->t.x)
@@ -149,7 +149,7 @@ int       ft_i_2(t_pf *f, char *str)
 int       ft_i(t_pf *f, int nb)
 {
   char    *str;
-
+  printf("%d\n", f->t.plus);
   str = ft_itoa(nb);
   f->t.len = ft_strlen(str);
   // printf("x = %d, y = %d, len = %d, zero = %d \n", f->t.x, f->t.y, f->t.len, f->t.z);
