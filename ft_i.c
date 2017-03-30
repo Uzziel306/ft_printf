@@ -114,7 +114,7 @@ int       ft_i_x_complex_2(t_pf *f, char *str)
 
 int       ft_i_print(t_pf *f, char *str)
 {
-  if (f->t.s == 1)
+  if (f->t.s == 1 && str[0] != '-')
     f->t.res += ft_putchar(' ');
   if (f->t.plus == 1 && f->t.m == 0)
       f->t.res += ft_putchar('+');
