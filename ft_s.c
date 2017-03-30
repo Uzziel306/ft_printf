@@ -3,101 +3,91 @@
 int      ft_s_dat(t_pf *f, char *str)
 {
   int    i;
-
   i = 0;
-  if(f->tool.y == 0)
+  if(f->t.y == 0)
     return(0);
-  while (str[i] != '\0' && i < f->tool.y)
+  while (str[i] != '\0' && i < f->t.y)
   {
-    write(1, &str[i] ,1);
+    f->t.res += ft_putchar(str[i]);
     i += 1;
   }
   return (0);
 }
 
-int       ft_s_x(t_pf *f, char *str)
+int       ft_s_x(t_pf *f, char *str, int flag)
 {
-  f->tool.len = ft_strlen(str);
-  if (f->tool.len >= f->tool.x)
-    ft_putstr(str);
+  if (flag == 1)
+    f->t.tmp[f->t.y] = '\0';
+  f->t.len = ft_strlen(str);
+  if (f->t.len >= f->t.x)
+    f->t.res += ft_putstr(str);
   else
   {
-    f->tool.x -= f->tool.len;
-    while (f->tool.i < f->tool.x)
+    f->t.x -= f->t.len;
+    while (f->t.i < f->t.x)
     {
-      write(1, " ", 1);
-      f->tool.i += 1;
+      f->t.res += ft_putchar(' ');
+      f->t.i += 1;
     }
-    ft_putstr(str);
+    f->t.res += ft_putstr(str);
   }
   return (0);
 }
 
-int       ft_s_x_r(t_pf *f, char *str)
+int       ft_s_x_r(t_pf *f, char *str, int flag)
 {
-  f->tool.len = ft_strlen(str);
-  if (f->tool.len >= f->tool.x)
-    ft_putstr(str);
+  if (flag == 1)
+    f->t.tmp[f->t.y] = '\0';
+  f->t.len = ft_strlen(str);
+  if (f->t.len >= f->t.x)
+    f->t.res += ft_putstr(str);
   else
   {
-    f->tool.x -= f->tool.len;
-    ft_putstr(str);
-    while (f->tool.i < f->tool.x)
+    f->t.x -= f->t.len;
+    f->t.res += ft_putstr(str);
+    while (f->t.i < f->t.x)
     {
-      write(1, " ", 1);
-      f->tool.i += 1;
+      f->t.res += ft_putchar(' ');
+      f->t.i += 1;
     }
   }
   return (0);
 }
 
-int       ft_s_x_dat(t_pf *f, char *str)
+void       ft_s_x_dat(t_pf *f, char *str)
 {
-  char *tmp;
-
-// printf("x = %d, y = %d, dat = %d, minus = %d , len = %d\n",f->tool.x, f->tool.y, f->tool.dat, f->tool.minus, f->tool.len);
-  tmp = ft_strdup(str);
-  f->tool.len = ft_strlen(str);
-  if (f->tool.y >= f->tool.len && f->tool.x <= f->tool.len)
-    ft_putstr(str);
-  else if (f->tool.x <= f->tool.y)
+  f->t.tmp = ft_strdup(str);
+  f->t.len = ft_strlen(str);
+  if (f->t.y >= f->t.len && f->t.x <= f->t.len)
+    f->t.res += ft_putstr(str);
+  else if (f->t.x <= f->t.y)
     ft_s_dat(f, str);
-  else if (f->tool.x > f->tool.len && f->tool.minus == 0)
-  {
-    tmp[f->tool.y] = '\0';
-    ft_s_x(f, tmp);
-  }
-  else if (f->tool.x > f->tool.len && f->tool.minus == 1)
-  {
-    tmp[f->tool.y] = '\0';
-    ft_s_x_r(f, tmp);
-  }
-  else if (f->tool.y < f->tool.len)
-  {
-    tmp[f->tool.y] = '\0';
-    ft_s_x_r(f, tmp);
-  }
-  return (0);
+  else if (f->t.x > f->t.len && f->t.m == 0)
+    ft_s_x(f, f->t.tmp, 1);
+  else if (f->t.x > f->t.len && f->t.m == 1)
+    ft_s_x_r(f, f->t.tmp, 1);
+  else if (f->t.y < f->t.len && f->t.m == 1)
+    ft_s_x_r(f, f->t.tmp, 1);
+  else if (f->t.y < f->t.len && f->t.m == 0)
+    ft_s_x(f, f->t.tmp, 1);
 }
-
-// printf("x = %d, y = %d, . = %d\n", f->tool.x, f->tool.y, f->tool.dat);
-// '%' = x, '.' = y
 
 int       ft_s(t_pf *f, char *str)
 {
   int     i;
 
-  f->tool.len = ft_strlen(str);
+  f->t.len = ft_strlen(str);
   i = 0;
-  if (f->tool.dat == 0 && f->tool.x == 0 && f->tool.y == 0)
-    ft_putstr(str);
-  else if (f->tool.dat == 1 && f->tool.x == 0)
+  if (f->t.dat == 0 && f->t.x == 0 && f->t.y == 0)
+    f->t.res += ft_putstr(str);
+  else if (f->t.dat == 1 && f->t.x == 0)
     ft_s_dat(f, str);
-  else if (f->tool.dat == 0 && f->tool.x > 0 && f->tool.minus == 0 && f->tool.y == 0)
-    ft_s_x(f, str);
-  else if (f->tool.dat == 0 && f->tool.x > 0 && f->tool.minus == 1 && f->tool.y == 0)
-    ft_s_x_r(f, str);
-  else if (f->tool.dat == 1 && f->tool.x > 0 && f->tool.y > 0)
+  else if (f->t.dat == 0 && f->t.x > 0 && f->t.m == 0 && f->t.y == 0)
+    ft_s_x(f, str, 0);
+  else if (f->t.dat == 0 && f->t.x > 0 && f->t.m == 1 && f->t.y == 0)
+    ft_s_x_r(f, str, 0);
+  else if (f->t.dat == 1 && f->t.x > 0 && f->t.y > 0)
     ft_s_x_dat(f, str);
+  zero(f);
   return(0);
 }

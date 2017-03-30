@@ -40,7 +40,7 @@ int        uctoutf8(const char *dest, wchar_t ch)
     return ((int)p != (int)dest ? 1 : 0);
 }
 
-void    ft_putchar(int _c)
+int    ft_putchar(int _c)
 {
     wchar_t    c;
 
@@ -53,4 +53,5 @@ void    ft_putchar(int _c)
         write(1, &c, 3);
     else if (_c < 0x110000)
         write(1, &c, 4);
+    return (1);
 }
