@@ -2,7 +2,7 @@
 
 int       ft_i_d(t_pf *f, char *str)
 {
-  if (f->t.plus == 1)
+  if (f->t.plus == 1 && f->t.m == 0)
     f->t.res += ft_putchar('+');
   if (str[0] == '-')
   {
@@ -22,7 +22,7 @@ int       ft_i_d(t_pf *f, char *str)
 int      ft_i_x(t_pf *f, char *str)
 {
   char c = ' ';
-  if (f->t.plus == 1 && f->t.z == 0 && str[0] != '-')
+  if (f->t.plus == 1 && f->t.z == 0 && str[0] != '-' && f->t.m == 0)
   {
     str = ft_strjoin("+", str);
     f->t.len += 1;
@@ -46,7 +46,7 @@ int       ft_i_x_complex(t_pf *f, char *str)
 {
   if (f->t.s == 1)
     f->t.res += ft_putchar(' ');
-  if (f->t.plus == 1)
+  if (f->t.plus == 1 && f->t.m == 0)
     str = ft_strjoin("+", str);
   while (f->t.len < f->t.x)
   {
@@ -114,7 +114,9 @@ int       ft_i_x_complex_2(t_pf *f, char *str)
 
 int       ft_i_print(t_pf *f, char *str)
 {
-  if (f->t.plus == 1)
+  if (f->t.s == 1)
+    f->t.res += ft_putchar(' ');
+  if (f->t.plus == 1 && f->t.m == 0)
       f->t.res += ft_putchar('+');
     f->t.res += ft_putstr(str);
   return (0);
@@ -149,7 +151,7 @@ int       ft_i_2(t_pf *f, char *str)
 int       ft_i(t_pf *f, int nb)
 {
   char    *str;
-  printf("%d\n", f->t.plus);
+
   str = ft_itoa(nb);
   f->t.len = ft_strlen(str);
   // printf("x = %d, y = %d, len = %d, zero = %d \n", f->t.x, f->t.y, f->t.len, f->t.z);
