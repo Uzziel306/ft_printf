@@ -10,7 +10,7 @@ int       ft_chose_format(t_pf *f, va_list pa)
     ft_i(f, va_arg(pa, int));
   else if (f->t.c == '%')
     f->t.res += ft_putchar('%');
-
+  zero (f);
   return (0);
 }
 
@@ -125,6 +125,11 @@ int       ft_printf(const char *format, ...)
 //   printf("@moulitest: [%.d] {%.0d}\n", 0, 0);
 //   ft_printf("@moulitest: [%.d] {%.0d}\n", 0, 0);
 //   printf("%4.3d\n",10 );
+  // printf("%6.5d %4.3d\n", -4242, 10);
+  // ft_printf("%6.5d %4.3d\n", -4242, 10);
+  // printf("%d\n", 2147483647);
+  // ft_printf("%d\n", 2147483647);
+
 //   ft_printf("%4.3d\n",10 );
 //   printf("😬\n");
 //   ft_printf("😬\n");

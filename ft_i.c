@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void      ft_i_d(t_pf *f, char *str)
+int       ft_i_d(t_pf *f, char *str)
 {
   if (f->t.plus == 1)
     f->t.res += ft_putchar('+');
@@ -16,9 +16,10 @@ void      ft_i_d(t_pf *f, char *str)
     f->t.len += 1;
   }
   f->t.res += ft_putstr(str);
+  return (0);
 }
 
-void      ft_i_x(t_pf *f, char *str)
+int      ft_i_x(t_pf *f, char *str)
 {
   char c = ' ';
   if (f->t.plus == 1 && f->t.z == 0 && str[0] != '-')
@@ -38,9 +39,10 @@ void      ft_i_x(t_pf *f, char *str)
     f->t.len += 1;
   }
   f->t.res += ft_putstr(str);
+  return (0);
 }
 
-void      ft_i_x_complex(t_pf *f, char *str)
+int       ft_i_x_complex(t_pf *f, char *str)
 {
   if (f->t.plus == 1)
     str = ft_strjoin("+", str);
@@ -51,9 +53,10 @@ void      ft_i_x_complex(t_pf *f, char *str)
   }
 
    f->t.res += ft_putstr(str);
+   return (0);
 }
 
-void      ft_i_x_complex_1(t_pf *f, char *str)
+int      ft_i_x_complex_1(t_pf *f, char *str)
 {
   int     j;
 
@@ -73,9 +76,10 @@ void      ft_i_x_complex_1(t_pf *f, char *str)
     j++;
   }
     ft_i_d(f, str);
+  return (0);
 }
 
-void      ft_i_x_r(t_pf *f, char *str)
+int        ft_i_x_r(t_pf *f, char *str)
 {
   if (f->t.plus == 1 && f->t.z == 0 && str[0] != '-')
   {
@@ -88,9 +92,10 @@ void      ft_i_x_r(t_pf *f, char *str)
     f->t.res += ft_putchar(' ');
     f->t.len += 1;
   }
+  return (0);
 }
 
-void      ft_i_x_complex_2(t_pf *f, char *str)
+int       ft_i_x_complex_2(t_pf *f, char *str)
 {
   ft_i_d(f, str);
   while (f->t.y < f->t.x)
@@ -98,13 +103,15 @@ void      ft_i_x_complex_2(t_pf *f, char *str)
     f->t.res += ft_putchar(' ');
     f->t.y += 1;
   }
+  return (0);
 }
 
-void      ft_i_print(t_pf *f, char *str)
+int       ft_i_print(t_pf *f, char *str)
 {
   if (f->t.plus == 1)
       f->t.res += ft_putchar('+');
     f->t.res += ft_putstr(str);
+  return (0);
 }
 
 int       ft_i_2(t_pf *f, char *str)
@@ -112,23 +119,23 @@ int       ft_i_2(t_pf *f, char *str)
   if (f->t.z == 123454)
     f->t.res += ft_putstr("Tu mama en tangota");
   else if (f->t.dat == 1 && f->t.len >= f->t.y && f->t.x == 0)//dat sencillo
-    ft_i_print(f, str);
+    return (ft_i_print(f, str));
   else if (f->t.dat == 1 && (f->t.len - 1) < f->t.y && f->t.x == 0) //dat sencillo
-    ft_i_d(f, str);
+    return (ft_i_d(f, str));
   else if (f->t.dat == 0 && f->t.y == 0 && f->t.x > 0 && f->t.m == 0) // x sencillo
-    ft_i_x(f, str);
+    return (ft_i_x(f, str));
   else if (f->t.dat == 0 && f->t.y == 0 && f->t.x > 0 && f->t.m == 1) // x sencillo
-    ft_i_x_r(f, str);
+    return (ft_i_x_r(f, str));
   else if (f->t.x <= f->t.len && f->t.y > f->t.len)
-    ft_i_d(f, str);
+    return (ft_i_d(f, str));
   else if (f->t.y <= f->t.len && f->t.x <= f->t.len) //complex X y Y menor o igual que len
-    ft_i_print(f, str);
+    return (ft_i_print(f, str));
   else if (f->t.y < f->t.len && f->t.x >= f->t.len) //complex X > len
-    ft_i_x_complex(f, str);
+    return (ft_i_x_complex(f, str));
   else if (f->t.y >= f->t.len && f->t.x > f->t.len && f->t.m == 0) //complex X > len
-    ft_i_x_complex_1(f, str);
+    return (ft_i_x_complex_1(f, str));
   else if (f->t.y >= f->t.len && f->t.x > f->t.len && f->t.m == 1) //complex X > len
-    ft_i_x_complex_2(f, str);
+    return (ft_i_x_complex_2(f, str));
   zero(f);
   return (0);
 }
@@ -141,7 +148,7 @@ int       ft_i(t_pf *f, int nb)
   f->t.len = ft_strlen(str);
   // printf("x = %d, y = %d, len = %d, zero = %d \n", f->t.x, f->t.y, f->t.len, f->t.z);
   if (f->t.m == 0 && f->t.fnb == 0 && f->t.dat == 0 && f->t.z == 0)
-    ft_i_print(f, str);
+    return(ft_i_print(f, str));
   else if (f->t.dat == 1 && f->t.x == 0 && f->t.y == 0)
     {
       zero(f);
