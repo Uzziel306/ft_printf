@@ -117,28 +117,9 @@ int       ft_printf(const char *format, ...)
   return (f->t.res);
 }
 // gcc ft_printf.c ft_s.c ft_i.c ft_c.c -Ift_printf.h libft/libft.a && ./a.out
-// int main(void)
+// int main (void)
 // {
-//   printf("%4.6s mundo %2C tengo %d años\n","hola", '!', 20);
-//   printf("%3.2d\n", -1);
-//   ft_printf("%3.2d\n", -1);
-//   printf("@moulitest: %.10d\n", -42);
-//   ft_printf("@moulitest: %.10d\n", -42);
-//   printf("@moulitest: [%.d] {%.0d}\n", 0, 0);
-//   ft_printf("@moulitest: [%.d] {%.0d}\n", 0, 0);
-//   printf("%4.3d\n",10 );
-  // printf("%6.5d %4.3d\n", -4242, 10);
-  // ft_printf("%6.5d %4.3d\n", -4242, 10);
-  // printf("%d\n", 2147483647);
-  // ft_printf("%d\n", 2147483647);
-// ft_printf("% 4.5i\n", 42);
-//   ft_printf("%4.3d\n",10 );
-//   printf("😬\n");
-//   ft_printf("😬\n");
-//   printf("1)%-10.5d\n", 4242);
-//   ft_printf("2)%-10.5d\n", 4242);
-//   ft_printf("%4.6s mundo %2C tengo %d años\n","hola", '!', 20);
-//   printf("%+4d \n", 10);
-//   ft_printf("%+4d \n", 10);
-//   return 0;
+//   printf("%+04d\n", 42);
+//   ft_printf("%+04d\n", 42);
+//   return (0);
 // }
