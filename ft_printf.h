@@ -17,6 +17,7 @@ typedef struct		s_tools
 	int				x;
 	int				y;
 	int				m;
+	int				s;
 	int				plus;
 	int				dat;
 	int				z;
