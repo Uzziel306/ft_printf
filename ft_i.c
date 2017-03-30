@@ -44,6 +44,8 @@ int      ft_i_x(t_pf *f, char *str)
 
 int       ft_i_x_complex(t_pf *f, char *str)
 {
+  if (f->t.s == 1)
+    f->t.res += ft_putchar(' ');
   if (f->t.plus == 1)
     str = ft_strjoin("+", str);
   while (f->t.len < f->t.x)
@@ -60,6 +62,8 @@ int      ft_i_x_complex_1(t_pf *f, char *str)
 {
   int     j;
 
+  if (f->t.s == 1)
+    f->t.res += ft_putchar(' ');
   if (str[0] == '-')
   {
     str += 1;
@@ -97,6 +101,8 @@ int        ft_i_x_r(t_pf *f, char *str)
 
 int       ft_i_x_complex_2(t_pf *f, char *str)
 {
+  if (f->t.s == 1)
+    f->t.res += ft_putchar(' ');
   ft_i_d(f, str);
   while (f->t.y < f->t.x)
   {

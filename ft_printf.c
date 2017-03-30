@@ -80,6 +80,8 @@ int     ft_getval(char **str, t_pf *f, va_list pa)
       f->t.ht = 1;
     else if ((**str == '0') && ((*(*str - 1)) == '%' || (*(*str - 1)) == '+'))
       f->t.z = 1;
+      else if (**str == ' ' && (*(*str - 1)) == '%')
+      f->t.s = 1;
     else if (ft_isdigit(**str) && f->t.dat != 0)
       ft_get_nb(f, 1, str);
     else if (ft_isdigit(**str) && f->t.dat != 1)
@@ -129,7 +131,7 @@ int       ft_printf(const char *format, ...)
   // ft_printf("%6.5d %4.3d\n", -4242, 10);
   // printf("%d\n", 2147483647);
   // ft_printf("%d\n", 2147483647);
-
+// ft_printf("% 4.5i\n", 42);
 //   ft_printf("%4.3d\n",10 );
 //   printf("😬\n");
 //   ft_printf("😬\n");
