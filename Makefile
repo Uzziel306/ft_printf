@@ -71,7 +71,8 @@ LIBFT_FILES = ft_bzero.c \
 	ft_isspace.c\
 	ft_sqrt.c\
 	ft_memset.c\
-	get_next_line.c
+	get_next_line.c\
+	ft_itoa_base.c
 
 # Source files path
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
