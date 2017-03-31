@@ -68,7 +68,8 @@ SRC = ft_bzero.c \
 		ft_isspace.c\
 		ft_sqrt.c\
 		ft_memset.c\
-		get_next_line.c
+		get_next_line.c\
+		ft_itoa_base.c
 OBJ = $(SRC:.c=.o)
 
 # all rule
