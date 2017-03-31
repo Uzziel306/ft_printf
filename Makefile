@@ -6,7 +6,7 @@ SRC_DIR = src/
 LIB_DIR = libft/
 
 # Source files
-SRC_FILES = ft_printf.c ft_i.c ft_s.c ft_c.c ft_u.c
+SRC_FILES = ft_printf.c ft_i.c ft_s.c ft_c.c ft_u.c ft_x.c
 
 LIBFT_FILES = ft_bzero.c \
 	ft_memcpy.c \
