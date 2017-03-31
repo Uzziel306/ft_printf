@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include "libft.h"
+#include "libft/libft.h"
 
 typedef struct		s_tools
 {

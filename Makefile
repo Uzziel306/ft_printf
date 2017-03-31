@@ -1,111 +1,104 @@
-# Name of the library
 NAME = libftprintf.a
 
-# Folders of the source files (*.c)
-SRC_DIR = src/
-LIB_DIR = libft/
+CFLAG = -c -Wall -Werror -Wextra
 
-# Source files
-SRC_FILES = ft_printf.c ft_i.c ft_s.c ft_c.c ft_u.c ft_x.c
+SRCS = ft_printf.c ft_i.c ft_s.c ft_c.c ft_u.c ft_x.c
 
-LIBFT_FILES = ft_bzero.c \
-	ft_memcpy.c \
-	ft_memccpy.c \
-	ft_memmove.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strlen.c \
-	ft_strdup.c \
-	ft_strcpy.c \
-	ft_strncpy.c \
-	ft_strcat.c \
-	ft_strncat.c \
-	ft_strlcat.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strstr.c \
-	ft_strnstr.c \
-	ft_strcmp.c \
-	ft_strncmp.c \
-	ft_atoi.c \
-	ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_memalloc.c \
-	ft_memdel.c \
-	ft_strnew.c \
-	ft_strdel.c \
-	ft_strclr.c \
-	ft_striter.c \
-	ft_striteri.c \
-	ft_strmap.c \
-	ft_strmapi.c \
-	ft_strequ.c \
-	ft_strnequ.c \
-	ft_strsub.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_strsplit.c \
-	ft_itoa.c \
-	ft_putchar.c \
-	ft_putstr.c \
-	ft_putendl.c \
-	ft_putnbr.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_lstnew.c \
-	ft_lstdelone.c \
-	ft_lstdel.c \
-	ft_lstadd.c \
-	ft_lstiter.c \
-	ft_lstmap.c \
-	ft_swap.c\
-	ft_div_mod.c\
-	ft_generic.c\
-	ft_isspace.c\
-	ft_sqrt.c\
-	ft_memset.c\
-	get_next_line.c\
-	ft_itoa_base.c
+OBJS = $(SRCS:.c=.o)
 
-# Source files path
-SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
-LIBFT = $(addprefix $(LIB_DIR), $(LIBFT_FILES))
+LIB_OBJS = libft/ft_bzero.c \
+	libft/ft_memcpy.o \
+	libft/ft_memccpy.o \
+	libft/ft_memmove.o \
+	libft/ft_memchr.o \
+	libft/ft_memcmp.o \
+	libft/ft_strlen.o \
+	libft/ft_strdup.o \
+	libft/ft_strcpy.o \
+	libft/ft_strncpy.o \
+	libft/ft_strcat.o \
+	libft/ft_strncat.o \
+	libft/ft_strlcat.o \
+	libft/ft_strchr.o \
+	libft/ft_strrchr.o \
+	libft/ft_strstr.o \
+	libft/ft_strnstr.o \
+	libft/ft_strcmp.o \
+	libft/ft_strncmp.o \
+	libft/ft_atoi.o \
+	libft/ft_isalpha.o \
+	libft/ft_isdigit.o \
+	libft/ft_isalnum.o \
+	libft/ft_isascii.o \
+	libft/ft_isprint.o \
+	libft/ft_toupper.o \
+	libft/ft_tolower.o \
+	libft/ft_memalloc.o \
+	libft/ft_memdel.o \
+	libft/ft_strnew.o \
+	libft/ft_strdel.o \
+	libft/ft_strclr.o \
+	libft/ft_striter.o \
+	libft/ft_striteri.o \
+	libft/ft_strmap.o \
+	libft/ft_strmapi.o \
+	libft/ft_strequ.o \
+	libft/ft_strnequ.o \
+	libft/ft_strsub.o \
+	libft/ft_strjoin.o \
+	libft/ft_strtrim.o \
+	libft/ft_strsplit.o \
+	libft/ft_itoa.o \
+	libft/ft_putchar.o \
+	libft/ft_putstr.o \
+	libft/ft_putendl.o \
+	libft/ft_putnbr.o \
+	libft/ft_putchar_fd.o \
+	libft/ft_putstr_fd.o \
+	libft/ft_putendl_fd.o \
+	libft/ft_putnbr_fd.o \
+	libft/ft_lstnew.o \
+	libft/ft_lstdelone.o \
+	libft/ft_lstdel.o \
+	libft/ft_lstadd.o \
+	libft/ft_lstiter.o \
+	libft/ft_lstmap.o \
+	libft/ft_swap.o\
+	libft/ft_div_mod.o\
+	libft/ft_generic.o\
+	libft/ft_isspace.o\
+	libft/ft_sqrt.o\
+	libft/ft_memset.o\
+	libft/get_next_line.o\
+	libft/ft_itoa_base.o
 
-# Objects
-OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
+RM = rm -f
 
-# Flags
-INC = -Iincludes/
-FLAGS = -Wall -Wextra -Werror
+LIBS = ./libft/libft.a
 
-# all rule
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
-# Compiling command
-$(NAME):
-	@echo "(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧ Compiling... Wait a sec."
-	@gcc -c $(FLAGS) $(SRC) $(LIBFT) $(INC)
-	@ar rc $(NAME) $(OBJ)
+$(OBJS):
+	@gcc $(CFLAG) $(SRCS)
+
+$(LIB_OBJS):
+	@$(MAKE) -C ./libft
+
+$(NAME): $(OBJS) $(LIB_OBJS)
+	@ar rcs $(NAME) $(LIB_OBJS) $(OBJS)
 	@ranlib $(NAME)
-	@echo "(•̀ᴗ•́)و $(NAME) generated!".
+	@echo "\033[32mFT_PRINTF: Built library. (˘▾˘) \033[0m"
 
-# clean rule
 clean:
-	@/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJS)
+	@$(MAKE) -C ./libft/ clean
+	@echo "\033[32mFT_PRINTF: Cleaned up object files. (˘▾˘) \033[0m"
 
-# fclean rule
 fclean: clean
 	@/bin/rm -f $(NAME)
+	@$(MAKE) -C ./libft/ fclean
+	@echo "\033[32mFT_PRINTF: Cleaned up compiled files. (˘▾˘) \033[0m"
 
-# re rule
 re: fclean all
-
-# phony
-.PHONY: all clean fclean re
