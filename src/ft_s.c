@@ -75,7 +75,11 @@ void       ft_s_x_dat(t_pf *f, char *str)
 int       ft_s(t_pf *f, char *str)
 {
   int     i;
-
+  if (str == NULL)
+  {
+    f->t.res += ft_putstr("(null)");
+    return (0);
+  }
   f->t.len = ft_strlen(str);
   i = 0;
   if (f->t.dat == 0 && f->t.x == 0 && f->t.y == 0)

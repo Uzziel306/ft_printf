@@ -87,6 +87,7 @@ int					ft_toupper(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isspace(int c);
+char				*ft_itoa_base(int n, int b);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

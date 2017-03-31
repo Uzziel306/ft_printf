@@ -8,6 +8,12 @@ int       ft_chose_format(t_pf *f, va_list pa)
     ft_c(f, va_arg(pa, int));
   else if (f->t.c == 'i' || f->t.c == 'd')
     ft_i(f, va_arg(pa, int));
+  else if (f->t.c == 'u' || f->t.c == 'U')
+    ft_u(f, va_arg(pa, int));
+  else if (f->t.c == 'x' || f->t.c == 'X')
+    ft_x(f, va_arg(pa, int));
+  else if (f->t.c == 'o' || f->t.c == 'O')
+    ft_o(f, va_arg(pa, int));
   else if (f->t.c == '%')
     f->t.res += ft_putchar('%');
   zero (f);
@@ -117,9 +123,10 @@ int       ft_printf(const char *format, ...)
   return (f->t.res);
 }
 // gcc ft_printf.c ft_s.c ft_i.c ft_c.c -Ift_printf.h libft/libft.a && ./a.out
-// int main (void)
-// {
-//   printf("%+04d\n", 42);
-//   ft_printf("%+04d\n", 42);
-//   return (0);
-// }
+int main (void)
+{
+
+  printf("%o\n", 42);
+  ft_printf("%s\n", NULL);
+  return (0);
+}

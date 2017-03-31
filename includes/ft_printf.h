@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include "libft.h"
+#include "libft/libft.h"
 
 typedef struct		s_tools
 {
@@ -38,9 +38,12 @@ typedef struct		s_pf
   t_tools t;
 }					t_pf;
 
-int      ft_s_dat(t_pf *f, char *str);
-int      ft_s(t_pf *f, char *str);
-int    	 ft_c(t_pf *f, int c);
-int	     ft_i(t_pf *f, int nb);
-void     zero(t_pf *f);
+int				ft_s_dat(t_pf *f, char *str);
+int				ft_s(t_pf *f, char *str);
+int				ft_c(t_pf *f, int c);
+int				ft_i(t_pf *f, int nb);
+int				ft_x(t_pf *f, int nb);
+int				ft_u(t_pf *f, int nb);
+int				ft_o(t_pf *f, int nb);
+void			zero(t_pf *f);
 #endif
