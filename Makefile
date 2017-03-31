@@ -6,7 +6,7 @@ SRCS = ft_printf.c ft_i.c ft_s.c ft_c.c ft_u.c ft_x.c
 
 OBJS = $(SRCS:.c=.o)
 
-LIB_OBJS = libft/ft_bzero.c \
+LIB_OBJS = libft/ft_bzero.o \
 	libft/ft_memcpy.o \
 	libft/ft_memccpy.o \
 	libft/ft_memmove.o \
