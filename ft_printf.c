@@ -9,7 +9,9 @@ int       ft_chose_format(t_pf *f, va_list pa)
   else if (f->t.c == 'i' || f->t.c == 'd')
     ft_i(f, va_arg(pa, int));
   else if (f->t.c == 'u' || f->t.c == 'U')
-    ft_u(f, va_arg(pa, int));
+    ft_u(f, pa);
+  else if (f->t.c == 'p')
+    ft_p(f, pa);
   else if (f->t.c == 'x' || f->t.c == 'X')
     ft_x(f, va_arg(pa, int));
   else if (f->t.c == 'o' || f->t.c == 'O')
@@ -71,6 +73,23 @@ void    ft_get_nb(t_pf *f, int flag, char **str)
   }
 }
 
+int     ft_getflags( char *flag, t_pf *f)
+{
+  if (flag[0] == 'h' && flag[1] && flag[1] != 'h' )
+    f->t.h = 1;
+  else if(flag[0] == 'h' && flag[1] && flag[1] == 'h')
+    f->t.hh = 1;
+  else if(flag[0] == 'l' && flag[1] && flag[1] != 'l')
+    f->t.l = 1;
+  else if(flag[0] == 'l' && flag[1] && flag[1] == 'l')
+    f->t.ll = 1;
+  else if(flag[0] == 'j' )
+    f->t.l = 1;
+  else if(flag[0] == 'z')
+    f->t.zz = 1;
+  return (0);
+}
+
 int     ft_getval(char **str, t_pf *f, va_list pa)
 {
   *str += 1;
@@ -86,13 +105,15 @@ int     ft_getval(char **str, t_pf *f, va_list pa)
       f->t.ht = 1;
     else if ((**str == '0') && ((*(*str - 1)) == '%' || (*(*str - 1)) == '+'))
       f->t.z = 1;
-      else if (**str == ' ' && (*(*str - 1)) == '%')
+    else if (**str == ' ' && (*(*str - 1)) == '%')
       f->t.s = 1;
     else if (ft_isdigit(**str) && f->t.dat != 0)
       ft_get_nb(f, 1, str);
     else if (ft_isdigit(**str) && f->t.dat != 1)
       ft_get_nb(f, 2, str);
-    else if ((f->t.c = ft_get_format(**str)))
+    else if (ft_isalpha(**str))
+      ft_getflags(*str, f);
+    if ((f->t.c = ft_get_format(**str)))
       return (ft_chose_format(f, pa));
     *str += 1;
   }
@@ -125,8 +146,7 @@ int       ft_printf(const char *format, ...)
 // gcc ft_printf.c ft_s.c ft_i.c ft_c.c -Ift_printf.h libft/libft.a && ./a.out
 // int main (void)
 // {
-//
-//   printf("%o\n", 42);
-//   ft_printf("%s\n", NULL);
+//   printf("%p\n",c);
+//   ft_printf("%p\n",c);
 //   return (0);
 // }

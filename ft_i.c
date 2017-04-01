@@ -151,7 +151,6 @@ int       ft_i_2(t_pf *f, char *str)
 int       ft_i(t_pf *f, int nb)
 {
   char    *str;
-
   str = ft_itoa(nb);
   f->t.len = ft_strlen(str);
   // printf("x = %d, y = %d, len = %d, zero = %d \n", f->t.x, f->t.y, f->t.len, f->t.z);

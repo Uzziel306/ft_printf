@@ -78,7 +78,7 @@ int       ft_s(t_pf *f, char *str)
   if (str == NULL)
   {
     f->t.res += ft_putstr("(null)");
-    return (0);
+    return (6);
   }
   f->t.len = ft_strlen(str);
   i = 0;

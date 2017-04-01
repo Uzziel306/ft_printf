@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
-#include "libft/libft.h"
+#include "libft.h"
 
 typedef struct		s_tools
 {
@@ -20,8 +20,6 @@ typedef struct		s_tools
 	int				fnb;
 	int				res;
 	int				len;
-	int				temp;
-	int				count;
 	int				x;
 	int				y;
 	int				m;
@@ -32,9 +30,6 @@ typedef struct		s_tools
 	int				dat_nb;
 	int				ht;
 	int				percent;
-	long int	decimalnumber;
-	long int	quotient;
-	char			hexadecimalnumber[100];
 	char			*pluss;
 	char			*tmp;
 	char			*nb;
@@ -50,12 +45,9 @@ typedef struct		s_pf
 }					t_pf;
 
 int				ft_s_dat(t_pf *f, char *str);
-int				ft_p(t_pf *f, va_list ap);
 int				ft_s(t_pf *f, char *str);
 int				ft_c(t_pf *f, int c);
 int				ft_i(t_pf *f, int nb);
-int				ft_x(t_pf *f, int nb);
-int				ft_u(t_pf *f, va_list pa);
-int				ft_o(t_pf *f, int nb);
+int				print_u(t_pf *f, int nb)
 void			zero(t_pf *f);
 #endif
