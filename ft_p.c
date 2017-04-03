@@ -2,6 +2,11 @@
 
 int				resul_hex(t_pf *f)
 {
+	int a;
+
+	a = 55;
+	if (f->t.c == 'x')
+	a = 87;
 	f->t.count = 0;
 	if (f->t.decimalnumber == 0)
 	{
@@ -16,7 +21,7 @@ int				resul_hex(t_pf *f)
 		if (f->t.temp < 10)
 			f->t.temp = f->t.temp + 48;
 		else
-			f->t.temp = f->t.temp + 55;
+			f->t.temp = f->t.temp + a;
 		f->t.hexadecimalnumber[f->t.i++] = f->t.temp;
 		f->t.quotient = f->t.quotient / 16;
 		f->t.count++;
