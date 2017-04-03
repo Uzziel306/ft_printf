@@ -13,7 +13,7 @@ int       ft_chose_format(t_pf *f, va_list pa)
   else if (f->t.c == 'p')
     ft_p(f, pa);
   else if (f->t.c == 'x' || f->t.c == 'X')
-    ft_x(f, va_arg(pa, int));
+    ft_x(f, pa);
   else if (f->t.c == 'o' || f->t.c == 'O')
     ft_o(f, va_arg(pa, int));
   else if (f->t.c == '%')
@@ -33,10 +33,14 @@ void      zero(t_pf *f)
   f->t.m = 0;
   f->t.dat = 0;
   f->t.dat_nb = 0;
+  f->t.fnb = 0;
   f->t.c = ' ';
+  f->t.decimalnumber = 0;
+  f->t.quotient = 0;
+  f->t.count = 0;
+  f->t.temp = 0;
   f->t.nb = ft_strnew(0);
   f->t.nb2 = ft_strnew(0);
-  f->t.fnb = 0;
   f->t.pluss = ft_strnew(0);
 }
 
@@ -146,7 +150,7 @@ int       ft_printf(const char *format, ...)
 // gcc ft_printf.c ft_s.c ft_i.c ft_c.c -Ift_printf.h libft/libft.a && ./a.out
 // int main (void)
 // {
-//   printf("%#o\n",42);
-//   ft_printf("%#o  \n",42);
+//   printf("%#X\n",42);
+//   ft_printf("%#X  \n",42);
 //   return (0);
 // }
