@@ -30,7 +30,10 @@ char    *ft_hextoa(int n, size_t prec)
 }
 
 int   ft_x(t_pf *f, int nb)
-{
+{  if (f->t.ht == 1 && nb != 0 && f->t.c == 'x')
+    f->t.res += ft_putstr("0X");
+  else if (f->t.ht == 1 && nb != 0 && f->t.c == 'X')
+    f->t.res += ft_putstr("0X");
   f->t.nb = ft_hextoa(nb, 0);
   return (f->t.res += ft_putstr(f->t.nb));
 }

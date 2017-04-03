@@ -146,7 +146,7 @@ int       ft_printf(const char *format, ...)
 // gcc ft_printf.c ft_s.c ft_i.c ft_c.c -Ift_printf.h libft/libft.a && ./a.out
 // int main (void)
 // {
-//   printf("%p\n",c);
-//   ft_printf("%p\n",c);
+//   printf("%#o\n",42);
+//   ft_printf("%#o  \n",42);
 //   return (0);
 // }
