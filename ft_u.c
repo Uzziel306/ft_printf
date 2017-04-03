@@ -40,24 +40,20 @@ int            ft_digitnuml(int n, int base)
     return (i + 1);
 }
 
-char    *ft_itoa_basel(long n, int b)
+char    *ft_itoa_basel(unsigned long long int n, int b)
 {
     char    *num;
     size_t    size;
-    long        neg;
-    long        mod;
+    long long int neg;
+    long long int mod;
 
     neg = 0;
     size = ft_digitnuml(n, b);
-    if (n < 0 && b == 10)
-        neg++;
-    num = ft_strnew(size);
-    if (neg)
-        num[0] = '-';
+		num = ft_strnew(size);
     num[size + neg] = 0;
     while (size--)
     {
-        mod = ((n % b) < 0 ? -(n % b) : (n % b));
+        mod = (n % b);
         num[size + neg] = ((mod > 9) ? mod + 55 : mod + '0');
         n /= b;
     }
@@ -66,9 +62,11 @@ char    *ft_itoa_basel(long n, int b)
 
 int ft_o(t_pf *f, va_list pa)
 {
-	f->t.decimalnumber = va_arg(pa, long);
-	if (f->t.ht == 1 && f->t.decimalnumber != 0)
+	unsigned int i;
+
+	i = va_arg(pa, unsigned int);
+	if (f->t.ht == 1 && i != 0)
 		f->t.res += ft_putchar('0');
-	f->t.nb = ft_itoa_basel(f->t.decimalnumber, 8);
+	f->t.nb = ft_itoa_basel(i, 8);
   return (f->t.res += ft_putstr(f->t.nb));
 }
