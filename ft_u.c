@@ -32,8 +32,8 @@ int				ft_u(t_pf *f, va_list pa)
 
 int ft_o(t_pf *f, int nb)
 {
-		if (f->t.ht == 1)
-			f->t.res += ft_putchar('0' && nb != 0);
+		if (f->t.ht == 1 && nb != 0)
+			f->t.res += ft_putchar('0');
 		f->t.nb = ft_itoa_base(nb, 8);
     return (f->t.res += ft_putstr(f->t.nb));
 }
