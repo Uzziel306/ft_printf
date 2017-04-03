@@ -67,9 +67,9 @@ char    *ft_itoa_basel(unsigned long long int value, int base)
 
 int ft_o(t_pf *f, va_list pa)
 {
-	unsigned long long int i;
+	unsigned int i;
 
-	i = va_arg(pa, unsigned long long int);
+	i = va_arg(pa, unsigned int);
 	if (f->t.ht == 1 && i != 0)
 		f->t.res += ft_putchar('0');
 	f->t.nb = ft_itoa_basel(i, 8);
