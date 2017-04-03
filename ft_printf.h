@@ -56,7 +56,7 @@ int				ft_c(t_pf *f, int c);
 int				ft_i(t_pf *f, int nb);
 int				ft_x(t_pf *f, va_list pa);
 int				ft_u(t_pf *f, va_list pa);
-int				ft_o(t_pf *f, int nb);
+int				ft_o(t_pf *f, va_list pa);
 int				resul_hex(t_pf *f);
 char			*reverse_array(char *s);
 void			zero(t_pf *f);
