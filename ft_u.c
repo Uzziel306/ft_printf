@@ -56,7 +56,8 @@ char    *ft_itoa_basel(unsigned long long int value, int base)
 		tmp = value;
 		len = ft_digitnuml(tmp, base);
 		str = ft_strnew(len);
-		while (tmp & len --)
+		tmp = value;
+		while (tmp && len--)
 		{
 			str[len] = nb[tmp  %base];
 			tmp /= base;
