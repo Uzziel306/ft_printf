@@ -30,7 +30,7 @@ int				ft_u(t_pf *f, va_list pa)
 	return (f->t.res += count);
 }
 
-int            ft_digitnuml(int n, int base)
+int            ft_digitnuml(unsigned long long int n, int base)
 {
     int        i;
 
@@ -40,24 +40,29 @@ int            ft_digitnuml(int n, int base)
     return (i + 1);
 }
 
-char    *ft_itoa_basel(unsigned long long int n, int b)
+char    *ft_itoa_basel(unsigned long long int value, int base)
 {
-    char    *num;
-    size_t    size;
-    long long int neg;
-    long long int mod;
+    unsigned long long int tmp;
+		char *str;
+		size_t len;
+		char *nb;
 
-    neg = 0;
-    size = ft_digitnuml(n, b);
-		num = ft_strnew(size);
-    num[size + neg] = 0;
-    while (size--)
-    {
-        mod = (n % b);
-        num[size + neg] = ((mod > 9) ? mod + 55 : mod + '0');
-        n /= b;
-    }
-    return (num);
+		nb = ft_strdup("0123456789ABCDEF");
+		if (value == 0 || base < 2 || base > 16)
+		{
+			ft_memdel((void **)&nb);
+			return (str = ft_strdup("0"));
+		}
+		tmp = value;
+		len = ft_digitnuml(tmp, base);
+		str = ft_strnew(len);
+		while (tmp & len --)
+		{
+			str[len] = nb[tmp  %base];
+			tmp /= base;
+		}
+		ft_memdel((void **)&nb);
+		return (str);
 }
 
 int ft_o(t_pf *f, va_list pa)
