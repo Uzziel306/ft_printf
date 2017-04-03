@@ -28,7 +28,7 @@ char    *ft_itoa_base(int n, int b)
     while (size--)
     {
         mod = ((n % b) < 0 ? -(n % b) : (n % b));
-        num[size + neg] = ((mod > 9) ? mod + 87 : mod + '0');
+        num[size + neg] = ((mod > 9) ? mod + 55 : mod + '0');
         n /= b;
     }
     return (num);
