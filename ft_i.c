@@ -148,12 +148,31 @@ int       ft_i_2(t_pf *f, char *str)
   return (0);
 }
 
-int       ft_i(t_pf *f, int nb)
+int       ft_i_flags(t_pf *f, va_list pa)
+{
+  unsigned long long int nb;
+
+  if (f->t.zz == 1)
+  {
+    nb = va_arg(pa, unsigned long long int);
+    f->t.nb = ft_itoa_basel(nb, 10);
+    f->t.res += ft_putstr(f->t.nb);
+    return (1);
+  }
+  return (0);
+}
+
+int       ft_i(t_pf *f, va_list pa)
 {
   char    *str;
-  str = ft_itoa(nb);
+  int     nb;
+
+  if(ft_i_flags(f, pa))
+    return (0);
   f->t.len = ft_strlen(str);
   // printf("x = %d, y = %d, len = %d, zero = %d \n", f->t.x, f->t.y, f->t.len, f->t.z);
+  nb = va_arg(pa, int);
+  str = ft_itoa(nb);
   if (f->t.m == 0 && f->t.fnb == 0 && f->t.dat == 0 && f->t.z == 0)
     return(ft_i_print(f, str));
   else if (f->t.dat == 1 && f->t.x == 0 && f->t.y == 0)

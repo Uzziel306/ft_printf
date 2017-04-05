@@ -53,11 +53,12 @@ int				ft_s_dat(t_pf *f, char *str);
 int				ft_p(t_pf *f, va_list ap);
 int				ft_s(t_pf *f, char *str);
 int				ft_c(t_pf *f, int c);
-int				ft_i(t_pf *f, int nb);
+int				ft_i(t_pf *f, va_list pa);
 int				ft_x(t_pf *f, va_list pa);
 int				ft_u(t_pf *f, va_list pa);
 int				ft_o(t_pf *f, va_list pa);
 int				resul_hex(t_pf *f);
+char			*ft_itoa_basel(unsigned long long int value, int base);
 char			*reverse_array(char *s);
 void			zero(t_pf *f);
 #endif

@@ -7,7 +7,7 @@ int       ft_chose_format(t_pf *f, va_list pa)
   else if (f->t.c == 'c' || f->t.c == 'C')
     ft_c(f, va_arg(pa, int));
   else if (f->t.c == 'i' || f->t.c == 'd')
-    ft_i(f, va_arg(pa, int));
+    ft_i(f, pa);
   else if (f->t.c == 'u' || f->t.c == 'U')
     ft_u(f, pa);
   else if (f->t.c == 'p')
@@ -149,7 +149,7 @@ int       ft_printf(const char *format, ...)
 }
 // int main (void)
 // {
-//   printf("%o\n",42);
-//   ft_printf("%o  \n",42);
+//   printf("%zd\n",184467440715620679);
+//   ft_printf("%zd  \n",184467440715620679);
 //   return (0);
 // }
