@@ -169,10 +169,10 @@ int       ft_i(t_pf *f, va_list pa)
 
   if(ft_i_flags(f, pa))
     return (0);
-  f->t.len = ft_strlen(str);
   // printf("x = %d, y = %d, len = %d, zero = %d \n", f->t.x, f->t.y, f->t.len, f->t.z);
   nb = va_arg(pa, int);
   str = ft_itoa(nb);
+  f->t.len = ft_strlen(str);
   if (f->t.m == 0 && f->t.fnb == 0 && f->t.dat == 0 && f->t.z == 0)
     return(ft_i_print(f, str));
   else if (f->t.dat == 1 && f->t.x == 0 && f->t.y == 0)

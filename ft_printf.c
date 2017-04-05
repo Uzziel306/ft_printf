@@ -149,7 +149,7 @@ int       ft_printf(const char *format, ...)
 }
 // int main (void)
 // {
-//   printf("%zd\n",184467440715620679);
-//   ft_printf("%zd  \n",184467440715620679);
+//   printf("%d \n",679);
+//   ft_printf("%d  \n",679);
 //   return (0);
 // }
