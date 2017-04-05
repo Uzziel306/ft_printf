@@ -149,7 +149,7 @@ int       ft_printf(const char *format, ...)
 }
 // int main (void)
 // {
-//   printf("%d \n",679);
-//   ft_printf("%d  \n",679);
+//   printf("%u\n",184467);
+//   ft_printf("%u\n",184467);
 //   return (0);
 // }
