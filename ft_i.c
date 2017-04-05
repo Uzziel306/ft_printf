@@ -152,7 +152,7 @@ int       ft_i_flags(t_pf *f, va_list pa)
 {
   unsigned long long int nb;
 
-  if (f->t.zz == 1)
+  if (f->t.zz == 1 || f->t.c == 'D')
   {
     nb = va_arg(pa, unsigned long long int);
     f->t.nb = ft_itoa_basel(nb, 10);
