@@ -149,8 +149,9 @@ int       ft_printf(const char *format, ...)
 }
 // int main (void)
 // {
-//   wchar_t *a =
-//   printf("%s\n","᪤");
-//   ft_printf("%S\n","᪤");
+//
+//   wchar_t *a = L" World";
+//   printf("%ls\n",a);
+//   ft_printf("%ls\n",a);
 //   return (0);
 // }
