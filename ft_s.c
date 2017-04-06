@@ -77,7 +77,7 @@ int       ft_upper_s(t_pf *f, va_list pa)
   wchar_t *str;
 
   str = va_arg(pa, wchar_t *);
-  return (f->t.res += ft_putwstr(str));
+  return (ft_putwstr(str));
 }
 
 int       ft_s(t_pf *f, va_list pa)

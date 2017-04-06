@@ -149,6 +149,7 @@ int       ft_printf(const char *format, ...)
 }
 // int main (void)
 // {
+//   wchar_t *a =
 //   printf("%s\n","᪤");
 //   ft_printf("%S\n","᪤");
 //   return (0);
