@@ -1,12 +1,9 @@
 #include "libft.h"
 
-/*
-** Computes the length of the wide character wc.
-*/
-
-int		ft_wclen(wchar_t wc)
+int			ft_wclen(wchar_t wc)
 {
 	int		len;
+
 	len = 0;
 	if (wc <= 0xFF)
 		len = 1;

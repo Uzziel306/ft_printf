@@ -1,12 +1,12 @@
 #include "ft_printf.h"
 
-int				resul_hex(t_pf *f)
+int					resul_hex(t_pf *f)
 {
-	int a;
+	int				a;
 
 	a = 55;
 	if (f->t.c == 'x')
-	a = 87;
+		a = 87;
 	f->t.count = 0;
 	if (f->t.decimalnumber == 0)
 	{
@@ -28,11 +28,12 @@ int				resul_hex(t_pf *f)
 	}
 	return (f->t.count);
 }
-char       *reverse_array(char *s)
+
+char				*reverse_array(char *s)
 {
-	int			i;
-	int			j;
-	char		*x;
+	int				i;
+	int				j;
+	char			*x;
 
 	j = 0;
 	i = ft_strlen(s);
@@ -48,9 +49,9 @@ char       *reverse_array(char *s)
 	return (s);
 }
 
-char			*ft_strlowcase(char *str)
+char				*ft_strlowcase(char *str)
 {
-	int			i;
+	int				i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -64,9 +65,8 @@ char			*ft_strlowcase(char *str)
 	return (str);
 }
 
-int				p_solver(t_pf *f, long i)
+int					p_solver(t_pf *f, long i)
 {
-
 	f->t.decimalnumber = i;
 	if (f->t.decimalnumber >= 0)
 		resul_hex(f);
@@ -81,7 +81,7 @@ int				p_solver(t_pf *f, long i)
 	return (f->t.count);
 }
 
-int				ft_p(t_pf *f, va_list ap)
+int					ft_p(t_pf *f, va_list ap)
 {
 	long			i;
 

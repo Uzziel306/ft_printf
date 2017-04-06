@@ -1,12 +1,9 @@
 #include "libft.h"
 
-/*
-** The encoding is variable-length and uses 8-bit code units.
-*/
-
-static int	wchar_utf8(wchar_t wc, char *convertion)
+static int		wchar_utf8(wchar_t wc, char *convertion)
 {
-	int		len;
+	int			len;
+
 	len = 0;
 	if (wc <= 0xFF)
 		convertion[len++] = wc;
@@ -31,15 +28,11 @@ static int	wchar_utf8(wchar_t wc, char *convertion)
 	return (len);
 }
 
-/*
-** Writes the character corresponding to the wide-character code wc to the
-** standard output.
-*/
-
-int			ft_putwchar(wchar_t wc)
+int				ft_putwchar(wchar_t wc)
 {
-	int		len;
-	char	convertion[4];
+	int			len;
+	char		convertion[4];
+
 	len = wchar_utf8(wc, convertion);
 	write(1, convertion, len);
 	return (len);

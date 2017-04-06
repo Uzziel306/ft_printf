@@ -19,9 +19,9 @@ int		ft_putstr(char const *s)
 	i = 0;
 	if (s)
 		while (*s)
-			{
-				ft_putchar((char)*s++);
-				i += 1;
-			}
-		return (i);
+		{
+			ft_putchar((char)*s++);
+			i += 1;
+		}
+	return (i);
 }
