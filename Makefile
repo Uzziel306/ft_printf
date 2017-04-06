@@ -70,7 +70,10 @@ LIB_OBJS = libft/ft_bzero.o \
 			libft/ft_sqrt.o\
 			libft/ft_memset.o\
 			libft/get_next_line.o\
-			libft/ft_itoa_base.o
+			libft/ft_itoa_base.o\
+			libft/ft_putwchar.c\
+			libft/ft_putwstr.c\
+			libft/ft_wclen.c
 
 RM = rm -f
 
