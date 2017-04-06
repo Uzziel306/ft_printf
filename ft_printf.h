@@ -51,7 +51,7 @@ typedef struct		s_pf
 
 int				ft_s_dat(t_pf *f, char *str);
 int				ft_p(t_pf *f, va_list ap);
-int				ft_s(t_pf *f, char *str);
+int				ft_s(t_pf *f, va_list ap);
 int				ft_c(t_pf *f, int c);
 int				ft_i(t_pf *f, va_list pa);
 int				ft_x(t_pf *f, va_list pa);
