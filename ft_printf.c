@@ -106,10 +106,3 @@ int			ft_printf(const char *format, ...)
 	va_end(pa);
 	return (f->t.res);
 }
-
-int main(void)
-{
-  printf("% 4.5i\n", 42);
-  ft_printf("% 4.5i\n", 42);
-   return 0;
-}
