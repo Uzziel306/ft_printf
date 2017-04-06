@@ -96,7 +96,7 @@ int			ft_printf(const char *format, ...)
 	{
 		if (*str == '%')
 		{
-			*str += 1;
+			str += 1;
 			ft_getval(&str, f, pa);
 		}
 		else
@@ -105,4 +105,11 @@ int			ft_printf(const char *format, ...)
 	}
 	va_end(pa);
 	return (f->t.res);
+}
+
+int main(void)
+{
+  printf("% 4.5i\n", 42);
+  ft_printf("% 4.5i\n", 42);
+   return 0;
 }
