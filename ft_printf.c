@@ -3,7 +3,7 @@
 int       ft_chose_format(t_pf *f, va_list pa)
 {
   if (f->t.c == 's' || f->t.c == 'S')
-    ft_s(f, va_arg(pa, char*));
+    ft_s(f, pa);
   else if (f->t.c == 'c' || f->t.c == 'C')
     ft_c(f, va_arg(pa, int));
   else if (f->t.c == 'i' || f->t.c == 'd' || f->t.c == 'D')
@@ -149,7 +149,7 @@ int       ft_printf(const char *format, ...)
 }
 // int main (void)
 // {
-//   printf("%D\n",429495929);
-//   ft_printf("%D\n",429495929);
+//   printf("%s\n","᪤");
+//   ft_printf("%S\n","᪤");
 //   return (0);
 // }

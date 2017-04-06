@@ -72,9 +72,22 @@ void       ft_s_x_dat(t_pf *f, char *str)
     ft_s_x(f, f->t.tmp, 1);
 }
 
-int       ft_s(t_pf *f, char *str)
+int       ft_upper_s(t_pf *f, va_list pa)
+{
+  wchar_t *str;
+
+  str = va_arg(pa, wchar_t *);
+  return (f->t.res += ft_putwstr(str));
+}
+
+int       ft_s(t_pf *f, va_list pa)
 {
   int     i;
+  char    *str;
+
+  if (f->t.c == 'S')
+    return (ft_upper_s(f, pa));
+  str = va_arg(pa, char*);
   if (str == NULL)
   {
     f->t.res += ft_putstr("(null)");
